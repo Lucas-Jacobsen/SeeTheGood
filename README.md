@@ -1,8 +1,25 @@
-# See the Good  <img src="https://github.com/Lucas-Jacobsen/SeeTheGood/blob/main/seethegood/src/assets/SeeTheGoodIcon.png?raw=true" alt="STG" width="100"> 
+# See the Good  <img src="https://github.com/Lucas-Jacobsen/SeeTheGood/blob/main/seethegood/src/assets/SeeTheGoodIcon.png?raw=true" alt="STG" align="center" height="40" > 
 
+
+Discover a weekly dose of positivity with **See the Good**. We curate heartwarming stories and uplifting news from around the world. Subscribe to start your week with smiles and celebrate the good in humanity. *See the good, be the good!*
 
 
 ## Features
+   - Positive News Stories
+   - Curated collection of positive news stories to uplift and inspire readers.
+   - Focus on highlighting the good happening in the world.
+   - Emphasis on content that brings joy, hope, and positivity.
+   - Stories that showcase acts of kindness, resilience, and positive change.
+   - Incorporates multimedia elements such as images, videos, and interviews.
+   - Behind-the-scenes looks at organizations and initiatives creating change.
+
+## Check it out
+
+
+
+<a href="https://github.com/Lucas-Jacobsen/SeeTheGood" style="background: linear-gradient(45deg, #6495ED, #0066CC); padding: 10px 20px; color: white; text-decoration: none; border-radius: 10px; display: inline-block;">
+   Subscribe Now 
+</a>
 
 ## Technologies Used
 
@@ -14,10 +31,6 @@
 - ![Heroku](https://img.shields.io/badge/-Heroku-430098?style=flat-square&logo=heroku&logoColor=white) Cloud platform used for hosting both the API backend and the frontend.
 
 
-## Check it out
-
-
-[![Start Messaging](https://img.shields.io/badge/Try%20Angrychat%20Now-FF5733?style=for-the-badge)](https://angrychat-frontend-d69df51a96e6.herokuapp.com/)
 
 ## Contributors
 
