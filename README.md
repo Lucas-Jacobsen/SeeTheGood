@@ -15,11 +15,8 @@ Discover a weekly dose of positivity with **See the Good**. We curate heartwarmi
 
 ## Check it out
 
+[![Subscribe Now](https://img.shields.io/badge/Subscribe%20Now-6495ED?style=for-the-badge&logo=heart&logoColor=white)](https://github.com/Lucas-Jacobsen/SeeTheGood)
 
-
-<a href="https://github.com/Lucas-Jacobsen/SeeTheGood" style="background: linear-gradient(45deg, #6495ED, #0066CC); padding: 10px 20px; color: white; text-decoration: none; border-radius: 10px; display: inline-block;">
-   Subscribe Now 
-</a>
 
 ## Technologies Used
 
