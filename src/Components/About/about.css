@@ -1,0 +1,194 @@
+/* Common styles for all screen sizes */
+
+body {
+    height: max-content;
+}
+
+.about {
+    background-image: url(https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&q=60&w=5000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmV3c3xlbnwwfHwwfHx8MA%3D%3D);
+    background-size: cover;
+    background-position: top;
+    text-align: center;
+    padding-top: 10vw; /* Adjust the value as needed */
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+}
+
+.header {
+    background-color: rgba(166, 191, 198, 0.8);
+    color: #353F41;
+    font-size: 7vw;
+    width: 50%;
+    text-align: center;
+    margin-left: 10%;
+    border-radius: 7rem;
+    box-shadow: 10px 10px 10px #000 ;
+
+}
+
+.content {
+    margin-left: 5%;
+    background-color: rgba(64, 78, 77, 0.8);
+    border-radius: 7rem;
+    padding: 10px;
+    width: 30%;
+    margin-top: 2%;
+    font-size: 2vw;
+    font-weight: 100;
+    color: #c6e5ec;
+    box-shadow: 10px 10px 10px #000 ;
+    }
+.content-container {
+    display: flex;
+    align-items: flex-start; /* Align them at the top */
+}
+
+.triangle {
+    transform: scale(-1);
+    top: 0;
+    right:100%;
+    width: 0;
+    height: 0;
+    border-left: 50vw solid transparent; /* Half of the viewport width for a triangle base */
+    border-bottom: 80vh solid rgba(166, 191, 198, 0.8); /* Height of the viewport for a triangle height */
+    margin-top: 10%;
+    margin-left: 5%;
+    
+
+}
+.text-section {
+    background-color: rgba(64, 78, 77, 0.8);
+    width: 30%; /* Adjust the width as needed */
+    color: #c6e5ec;
+    box-shadow: 10px 10px 10px #000;
+    margin-left: -80%;
+    margin-top: 15%;
+    height: max-content;
+    z-index: 2;
+    border-radius: 4rem;
+}
+.text-section ul{
+   text-align: left;
+    font-size: 1.5vw;
+}
+hr{
+    margin-top: -5vh;
+}
+
+h3 {
+    font-size: 3vw;
+    color: #353F41;
+}
+
+.Email-Form-Header{
+    margin-left: 40%;
+    font-size: 4vw;
+    color: #1e1e1e;
+}
+.Email-Form-Background{
+   
+    background-color: rgba(64, 78, 77, 0.8);
+    width: 45vw;
+    height: 15vh;
+    margin-left: 47.5%;
+    margin-bottom: -10vh;
+    border-radius: 2rem;
+
+}
+.Email-Form{
+    margin-left: 50%;
+    color: #353F41;
+    font-size: 2vw;
+    text-align: center;
+    border-radius: 2rem;
+    box-shadow: 10px 10px 10px #000 ;
+    width: 40vw;
+    height: 15vh;
+    position: relative;
+    z-index: 1; /* Ensure the form is on top of the background */
+    margin-bottom: 10vh;
+}
+
+.Email-Form form {
+    display: flex;
+    align-items: center;
+}
+
+.Email-Form input {
+    border: none;
+    width: 37vw;
+    font-size: 3rem;
+    height: 14.75vh;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    background-color: rgba(166, 191, 198, 0.8);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.Email-Form button {
+    width: 20%;
+    border-top-right-radius:  2rem;
+    border-bottom-right-radius:  2rem;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    height: 15vh;
+    font-size: 5rem;
+
+}
+.Thank-You-Message {
+    margin-left: 50%;
+    color: #353F41;
+    font-size: 2vw;
+    text-align: center;
+    border-radius: 2rem;
+    box-shadow: 10px 10px 10px #000 ;
+    width: 40vw;
+    height: 15vh;
+    position: relative;
+    z-index: 1; /* Ensure the form is on top of the background */
+    margin-bottom: 10vh;
+    background-color: rgba(166, 191, 198, 0.8);
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media queries for responsiveness */
+/* Adjust styles for screens smaller than 768px (e.g., mobile) */
+@media (max-width: 768px) {
+    .about {
+        padding-top: 5rem;
+    }
+
+    .header {
+        font-size: 5rem;
+    }
+
+    .content {
+        margin-left: 5%;
+        width: 90%;
+        font-size: 2rem; /* Adjust the font size for smaller screens */
+    }
+}
+
+/* Add more media queries for other screen sizes as needed */

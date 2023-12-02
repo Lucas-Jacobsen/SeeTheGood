@@ -1,0 +1,12 @@
+.banner {
+    background:
+        /* Gradient overlay with blur effect */
+            radial-gradient(ellipse at center, rgba(70, 82, 94, 0.2) 0%, rgba(70, 82, 94, 0.05) 25%, rgba(70, 82, 94, 0.05) 75%, rgba(70, 82, 94, 0.2) 100%),
+            rgba(70, 82, 94, 0.8);
+    background-image: url("/src/assets/SeeTheGoodBanner.png");
+    background-size: cover;
+    -webkit-backdrop-filter: blur(2px);
+    height: 25rem;
+    margin-top: -15rem;
+    overflow: hidden;
+}
