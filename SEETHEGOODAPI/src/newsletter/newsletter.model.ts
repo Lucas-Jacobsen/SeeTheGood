@@ -1,17 +1,17 @@
-import mongoose, { Document, Schema } from 'mongoose';
+import { ObjectId } from 'mongodb';
 
-interface EmailDocument extends Document {
-  to: string;
-  subject: string;
-  text: string;
+class Newsletter {
+  public _id: ObjectId | null;
+  public date: Date;
+  public html: string;
+  public authors: string[];
+
+  constructor(date: Date, html: string, authors: string[]) {
+    this._id = null; 
+    this.date = date;
+    this.html = html;
+    this.authors = authors;
+  }
 }
 
-const EmailSchema = new Schema({
-  to: { type: String, required: true },
-  subject: { type: String, required: true },
-  text: { type: String, required: true },
-});
-
-const Email = mongoose.model<EmailDocument>('Email', EmailSchema);
-
-export default Email;
+export default Newsletter;
