@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from "react";
+import React, { useState } from "react";
 import "./about.css"; // Import your CSS file
 
 function About() {
