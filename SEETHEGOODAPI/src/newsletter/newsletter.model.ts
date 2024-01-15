@@ -1,17 +1,18 @@
-import { ObjectId } from 'mongodb';
+// server/models/newsletter.model.ts
+import mongoose, { Document } from 'mongoose';
 
-class Newsletter {
-  public _id: ObjectId | null;
-  public date: Date;
-  public html: string;
-  public authors: string[];
-
-  constructor(date: Date, html: string, authors: string[]) {
-    this._id = null; 
-    this.date = date;
-    this.html = html;
-    this.authors = authors;
-  }
+interface INewsletter extends Document {
+  date: Date;
+  html: string;
+  authors: string[];
 }
+
+const newsletterSchema = new mongoose.Schema({
+  date: { type: Date, required: true },
+  html: { type: String, required: true },
+  authors: { type: [String], required: true },
+});
+
+const Newsletter = mongoose.model<INewsletter>('Newsletter', newsletterSchema);
 
 export default Newsletter;

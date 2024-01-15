@@ -5,16 +5,18 @@ class UserDAO {
   private collection: Collection<User>;
 
   constructor(db: MongoClient, collectionName: string) {
-    this.collection = db.db().collection<User>(collectionName);
+    // Extract the database name from the connection URI
+
+    // Use the correct database from the client.
+    this.collection = db.db(process.env.DATABASE_NAME).collection<User>(collectionName);
   }
 
   async createUser(user: User): Promise<User> {
     const result: InsertOneResult<User> = await this.collection.insertOne(user);
     const insertedId = result.insertedId;
 
-    // Assuming that 'user' has an '_id' property
     const insertedUser = await this.collection.findOne({ _id: insertedId });
-    
+
     if (!insertedUser) {
       throw new Error('User not found after insert');
     }
@@ -23,6 +25,7 @@ class UserDAO {
   }
 
   async getAllUsers(): Promise<User[]> {
+    console.log("In getAllUsers");
     return this.collection.find().toArray();
   }
 

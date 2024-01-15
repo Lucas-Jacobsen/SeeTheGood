@@ -1,44 +1,29 @@
 import { Request, Response } from 'express';
-import nodemailer from 'nodemailer';
-import Email from './newsletter.model'; // Create this model
+import Newsletter from './newsletter.model';
 
-const sendEmail = async (req: Request, res: Response) => {
-  const { to, subject, text } = req.body;
-
-  // Create a new Email document
-  const email = new Email({
-    to,
-    subject,
-    text,
-  });
-
+export const getAllNewsletters = async (req: Request, res: Response) => {
   try {
-    // Save the email to MongoDB
-    await email.save();
-
-    // Send the email
-    const transporter = nodemailer.createTransport({
-      service: 'YourEmailService',
-      auth: {
-        user: 'your@email.com',
-        pass: 'yourPassword',
-      },
-    });
-
-    const mailOptions = {
-      from: 'your@email.com',
-      to,
-      subject,
-      text,
-    };
-
-    const info = await transporter.sendMail(mailOptions);
-    console.log(`Email sent: ${info.response}`);
-    res.status(200).json({ message: 'Email sent successfully' });
+    const newsletters = await Newsletter.find();
+    res.json(newsletters);
+    console.log(newsletters)
   } catch (error) {
-    console.error(`Email error: ${error}`);
-    res.status(500).json({ error: 'Email could not be sent' });
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 };
 
-export { sendEmail };
+export const createNewsletter = async (req: Request, res: Response) => {
+  const { date, html, authors } = req.body;
+
+  if (!date || !html || !authors || authors.length === 0) {
+    return res.status(400).json({ error: 'Invalid request. Check your data.' });
+  }
+
+  try {
+    const newNewsletter = new Newsletter({ date, html, authors });
+    const savedNewsletter = await newNewsletter.save();
+    //res.json(savedNewsletter);
+    console.log("New Newsletter: " , savedNewsletter);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};

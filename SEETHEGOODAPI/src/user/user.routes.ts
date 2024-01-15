@@ -4,7 +4,7 @@ import UserController from './user.controller';
 
 const router = express.Router();
 
-const DATABASE_URL = process.env.DATABASE_URL|| ''; // Update with your MongoDB connection string
+const DATABASE_URL = process.env.DATABASE_URL|| ''; 
 const DATABASE_NAME = process.env.DATABASE_NAME || '';
 const COLLECTION_NAME = 'users';
 
@@ -12,7 +12,7 @@ const COLLECTION_NAME = 'users';
 const mongoClientOptions: MongoClientOptions = {
   useUnifiedTopology: true,
   useNewUrlParser: true,
-} as MongoClientOptions; // <-- Add this type assertion
+} as MongoClientOptions; 
 
 router.use(async (req: Request & { dbClient?: MongoClient; db?: any }, res: Response, next: NextFunction) => {
   try {

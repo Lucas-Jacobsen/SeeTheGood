@@ -1,23 +1,19 @@
-require('dotenv').config();
-
 import express from 'express';
-import mongoose, { ConnectOptions } from 'mongoose'; // Import ConnectOptions from mongoose
+import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import helmet from 'helmet';
 import compression from 'compression';
+import dotenv from 'dotenv'; // Import dotenv
 
 // Import your route files
-import userRoutes from './user/user.routes';
-import { MongoClientOptions } from 'mongodb';
+import Router from './newsletter/newsletter.routes';
 
-const mongooseOptions: ConnectOptions = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-} as ConnectOptions;
+dotenv.config(); // Load environment variables from .env file
+
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT 
 
 // Middleware
 app.use(bodyParser.json());
@@ -26,7 +22,8 @@ app.use(helmet());
 app.use(compression());
 
 // Your API routes
-app.use('/api', userRoutes);  // Use '/api' instead of '/api/users'
+app.use('/', Router);
+app.use('/newsletter', Router);
 
 // Error handling middleware
 app.use((err: { stack: any }, req: any, res: { status: (arg0: number) => any; send: (arg0: string) => void }, next: any) => {
@@ -39,7 +36,7 @@ const databaseUrl = process.env.DATABASE_URL;
 if (!databaseUrl) {
   console.error('DATABASE_URL is not defined. Please check your environment configuration.');
 } else {
-  mongoose.connect(databaseUrl, mongooseOptions)
+  mongoose.connect(databaseUrl)
     .then(() => {
       console.log('Database Connected');
       app.listen(port, () => {
