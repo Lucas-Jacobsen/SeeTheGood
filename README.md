@@ -1,7 +1,7 @@
 # See the Good  <img src="https://github.com/Lucas-Jacobsen/SeeTheGood/blob/main/seethegood/src/assets/SeeTheGoodIcon.png?raw=true" alt="STG" align="center" height="40" > 
 
 
-Discover a weekly dose of positivity with **See the Good**. We curate heartwarming stories and uplifting news from around the world. Subscribe to start your week with smiles and celebrate the good in humanity. *See the good, be the good!*
+Discover a weekly dose of positivity with **See the Good**. We curate heartwarming stories and uplifting news from around the world. Subscribe to start your week with smiles and celebrate the good in humanity. *See the good, embrase the positive!*
 
 
 ## Features
