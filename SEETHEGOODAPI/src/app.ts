@@ -7,7 +7,8 @@ import compression from 'compression';
 import dotenv from 'dotenv'; // Import dotenv
 
 // Import your route files
-import Router from './newsletter/newsletter.routes';
+import newsletterRouter from './newsletter/newsletter.routes';
+import userRouter from './user/user.routes';
 
 dotenv.config(); // Load environment variables from .env file
 
@@ -22,8 +23,8 @@ app.use(helmet());
 app.use(compression());
 
 // Your API routes
-app.use('/', Router);
-app.use('/newsletter', Router);
+app.use('/users', userRouter);
+app.use('/newsletter', newsletterRouter);
 
 // Error handling middleware
 app.use((err: { stack: any }, req: any, res: { status: (arg0: number) => any; send: (arg0: string) => void }, next: any) => {

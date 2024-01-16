@@ -21,7 +21,7 @@ export const createNewsletter = async (req: Request, res: Response) => {
   try {
     const newNewsletter = new Newsletter({ date, html, authors });
     const savedNewsletter = await newNewsletter.save();
-    //res.json(savedNewsletter);
+    res.json(savedNewsletter);
     console.log("New Newsletter: " , savedNewsletter);
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });

@@ -1,9 +1,9 @@
 import express from 'express';
 import { getAllNewsletters, createNewsletter } from './newsletter.controller';
 
-const router = express.Router();
+const newsletterRouter = express.Router();
 
-router.get('/', getAllNewsletters);
-router.post('/', createNewsletter);
+newsletterRouter.get('/', getAllNewsletters);
+newsletterRouter.post('/', createNewsletter);
 
-export default router;
+export default newsletterRouter;
