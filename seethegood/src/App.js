@@ -3,6 +3,7 @@ import './App.css';
 import Home from "./Components/Home/home";
 import About from "./Components/About/about";
 import Banner from "./Components/Banner/banner";
+import Cards from './Components/Cards/Cards';
 
 function App() {
     return (
@@ -10,6 +11,7 @@ function App() {
             <Home/>
             <Banner/>
             <About/>
+            <Cards/>
         </div>
     )
 }

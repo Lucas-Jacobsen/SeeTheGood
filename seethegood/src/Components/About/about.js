@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./about.css"; // Import your CSS file
+import Service from "../../service/service";
 
 function About() {
   const [user, setUser] = useState({ email: "", name: "", agree: "" });
   const [step, setStep] = useState(1);
+  const service = new Service(); // Create an instance of the Service class
 
   const handleEmailSubmit = (e) => {
     e.preventDefault();
@@ -19,23 +21,32 @@ function About() {
     // Perform any necessary validation or processing for name
     // If validation is successful, move to the next step
     const newName = e.target.elements.name.value || "";
-  setUser({ ...user, name: newName });
+    setUser({ ...user, name: newName });
     setStep(3);
   };
 
-  const handleAgreeSubmit = (e) => {
+  const handleAgreeSubmit = async (e) => {
     const agreementValue = e.target.elements.agree.value.trim().toLowerCase(); // Trim and convert to lowercase for case-insensitive check
 
-  // Check if the user has entered "I agree"
-  if (agreementValue === "i agree") {
-    // If validation is successful, create the user model and display the thank you message
-    const newUser = { ...user, agree: agreementValue };
-    setUser(newUser);
-    setStep(4);
-  } else {
-    // If the user didn't enter "I agree," you can display an error message or take other actions
-    alert("Please type 'I agree' to receive the newsletter in your email inbox.");
-  }
+    // Check if the user has entered "I agree"
+    if (agreementValue === "i agree") {
+      // If validation is successful, create the user model and display the thank you message
+      const newUser = { ...user, agree: agreementValue };
+      setUser(newUser);
+
+      
+      setStep(4);
+    // Call the submitUser method to send the newUser data to the API
+    const submissionSuccess = await service.submitUser(newUser);
+
+    if (!submissionSuccess) {
+      // Handle submission failure (display an error message, etc.)
+      alert("Error submitting user. Please try again.");
+    }
+    } else {
+      // If the user didn't enter "I agree," you can display an error message or take other actions
+      alert("Please type 'I agree' to receive the newsletter in your email inbox.");
+    }
   };
   return (
     <div className="about">
@@ -77,8 +88,8 @@ function About() {
         </div>
       </div>
       <div className="Email-Form-Header">Join the Newsletter</div>
-    <div className="Email-Form-Background"></div>
-    {step === 1 && (
+      <div className="Email-Form-Background"></div>
+      {step === 1 && (
         <div className="Email-Form">
           <form onSubmit={handleEmailSubmit}>
             <input type="email" placeholder="Enter your email" name="email" required />
@@ -101,7 +112,7 @@ function About() {
 
             <button type="submit">&gt;</button>
           </form>
-          <p style={{fontSize:"1rem"}}>Type "I agree" to receive the newsletter in your email inbox.</p>
+          <p style={{ fontSize: "1rem" }}>Type "I agree" to receive the newsletter in your email inbox.</p>
         </div>
       )}
       {step === 4 && (
@@ -109,13 +120,13 @@ function About() {
           <p>Thank you, {user.name}  for subscribing!</p>
         </div>
       )}
-     
+
     </div>
 
 
 
   );
-     
+
 
 }
 
