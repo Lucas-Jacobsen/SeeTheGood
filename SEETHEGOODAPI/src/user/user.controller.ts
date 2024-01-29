@@ -13,18 +13,21 @@ export const getAllUsers = async (req: Request, res: Response) => {
 };
 
 export const createUser = async (req: Request, res: Response) => {
-  const { _id, name, email } = req.body;
+  
+  const { name, email } = req.body;
 
-  if (!_id || !name || !email) {
-    return res.status(400).json({ error: 'Invalid request. Check your data.' });
-  }
 
   try {
-    const newUser = new User({ _id, name, email });
-    const savedUser = await newUser.save();
+ // Get the length of the users list in the database
+ const usersCount = await User.countDocuments();
+
+ // Set the _id to be one more than the length of the users list
+ const newUser = new User({ _id: usersCount + 1, name, email });
+ const savedUser = await newUser.save();
     res.json(savedUser);
     console.log("New User: " , savedUser);
   } catch (error) {
+    console.error("Error creating user:", error); // Log the error
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
